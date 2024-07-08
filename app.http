@@ -1,0 +1,194 @@
+
+
+###
+GET http://localhost:8000/api/ok
+
+
+###
+GET http://localhost:8000/api/users
+
+###
+GET http://localhost:8000/api/users/4
+
+###
+POST http://localhost:8000/api/users
+Content-Type: application/json
+    
+    {
+        "full_name": "Victor Peace",
+        "email": "victorpeace47@gmail.com",
+        "contact_phone": "0700000000",
+        "address": "Nairobi, Kenya",
+        "role": "user"
+    }
+
+###
+POST http://localhost:8000/api/users
+Content-Type: application/json
+    
+    {
+        "full_name": "Kephar Mutsa",
+        "email": "kepharmoses307@gmail.com",
+        "contact_phone": "0700000000",
+        "address": "Nairobi, Kenya",
+        "role": "user"
+    }
+
+
+
+###
+POST http://localhost:8000/api/users
+Content-Type: application/json
+    
+    {
+        "full_name": "Dracula Mutsa",
+        "email": "amutsamoses@gmail.com",
+        "contact_phone": "0700000000",
+        "address": "Nakuru, Kenya",
+        "role": "admin"
+    }
+
+###
+PUT http://localhost:8000/api/users/7
+Content-Type: application/json
+    
+    {
+        "full_name": "Victor Peace",
+        "email": "victorpeace47@gmail.com",
+        "contact_phone": "0700030030",
+        "address": "Nairobi, Kenya",
+        "role": "user"
+    }
+
+
+
+
+
+
+
+
+
+
+###
+DELETE http://localhost:8000/api/users/18
+
+/////Authentication and Authorization/////
+
+###
+POST http://localhost:8000/api/auth/register
+Content-Type: application/json
+    
+    {
+        "full_name": "Jane Smith",
+        "password": "password345",
+        "email": "jane.smith@example.com",
+        "contact_phone": "0700000000",
+        "role": "user"
+    }
+
+###
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+    
+    {
+        "email": "jane.smith@example.com",
+        "password": "password345"
+    }
+
+
+
+
+
+
+
+###
+GET http://localhost:8000/api/auth/v1
+
+
+
+###
+GET http://localhost:8000/api/vehiclespecs
+
+###
+GET http://localhost:8000/api/vehiclespecs/4
+
+###
+POST http://localhost:8000/api/vehiclespecs
+Content-Type: application/json
+    
+    {
+        "manufacturer": "Volvo",
+        "model": "XC90",
+        "year": 2019,
+        "fuel_type": "Petrol",
+        "engine_capacity": "2000cc",
+        "transmission": "Automatic",
+        "seating_capacity": 5,
+        "color": "White",
+        "features": "Air Conditioning, Power Steering, Power Windows, Anti-lock Braking System, Airbag, Alloy Wheels, Leather Seats, Central Locking, Fog Lights, CD Player, AM/FM Radio, Cup Holders, Electric Mirrors, Electric Windows, Foldable Rear Seats, Rear Wiper, Tinted Windows, Keyless Entry, Reverse Camera, Steering Controls, Sunroof, Xenon Lights"
+    }
+
+###
+PUT http://localhost:8000/api/vehiclespecs/7
+Content-Type: application/json
+    
+    {
+        "manufacturer": "Volvo",
+        "model": "XC90",
+        "year": 2019,
+        "fuel_type": "Diesel",
+        "engine_capacity": "2000cc",
+        "transmission": "Automatic",
+        "seating_capacity": 5,
+        "color": "White",
+        "features": "Air Conditioning, Power Steering, Power Windows, Anti-lock Braking System, Airbag, Alloy Wheels, Leather Seats, Central Locking, Fog Lights, CD Player, AM/FM Radio, Cup Holders, Electric Mirrors, Electric Windows, Foldable Rear Seats, Rear Wiper, Tinted Windows, Keyless Entry, Reverse Camera, Steering Controls, Sunroof, Xenon Lights"
+    }
+
+
+###
+DELETE http://localhost:8000/api/vehiclespecs/7
+
+
+###
+GET http://localhost:8000/api/vehicles/5
+
+###
+GET http://localhost:8000/api/vehicles
+
+###
+POST http://localhost:8000/api/vehicles
+Content-Type: application/json
+    
+    {
+        "vehicleSpec_id": 6,
+        "rental_rate": 5000,
+        "availability": true
+    }
+
+###
+PUT http://localhost:8000/api/vehicles/6
+Content-Type: application/json
+    
+    {
+        "vehicleSpec_id": 6,
+        "rental_rate": 5000,
+        "availability": false
+    }
+
+###
+DELETE http://localhost:8000/api/vehicles/6
+
+###
+GET http://localhost:8000/api/bookings
+
+###
+GET http://localhost:8000/api/locationsBranches
+
+###
+GET http://localhost:8000/api/customerSupportTickets
+
+###
+GET http://localhost:8000/api/fleet
+
+###
+GET http://localhost:8000/api/payment
