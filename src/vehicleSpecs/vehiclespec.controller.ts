@@ -14,6 +14,7 @@ import {
 } from "./vehiclespec.service";
 import { z, ZodError } from "zod";
 import { updateVehicleSpecWithVehicleSchema } from "../validators";
+import { TIVehicleSpecifications, TIVehicles } from "../drizzle/schema";
 
 export const listVehicleSpec = async (c: Context) => {
   try {
@@ -159,34 +160,15 @@ export const createVehicleSpecWithVehicle = async (c: Context) => {
 
 export const updateVehicleSpecWithVehicle = async (c: Context) => {
   try {
-    // Parse and validate the request body
     const body = await c.req.json();
-    const { vehicleSpecId, vehicleSpec, vehicle } =
-      updateVehicleSpecWithVehicleSchema.parse(body);
+    const vehicleSpec: Partial<TIVehicleSpecifications> = body.vehicleSpec;
+    const vehicle: Partial<TIVehicles> = body.vehicle;
+    const vehicleSpecId: number = parseInt(c.req.param("vehicleSpecId"), 10);
 
-    // Convert features to a single string or null if it's an empty array
-    const features =
-      (vehicleSpec.features ?? []).length > 0
-        ? vehicleSpec.features.join(", ")
-        : null;
-
-    // Update the vehicleSpec object with the modified features property
-    const updatedVehicleSpec = {
-      ...vehicleSpec,
-      features,
-    };
-
-    // Update the rental_rate property to be of type string
-    const updatedVehicle = {
-      ...vehicle,
-      rental_rate: vehicle.rental_rate?.toString() ?? "",
-    };
-
-    // Call the service to update the vehicle and its specifications
     const result = await updateVehicleSpecServiceWithVehicleService(
-      updatedVehicleSpec,
-      updatedVehicle,
-      vehicleSpecId // Pass the vehicleSpecId as a separate argument
+      vehicleSpec,
+      vehicle,
+      vehicleSpecId
     );
 
     // Return the success response
