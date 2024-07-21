@@ -9,6 +9,7 @@ import {
   createFleet,
   updateFleet,
   deleteFleet,
+  fleetWithVehicle,
 } from "./fleet.controller";
 
 import {
@@ -29,6 +30,7 @@ fleetRouter.post(
       return c.json({ error: results.error }, 400);
     }
   }),
+
   createFleet
 );
 
@@ -39,9 +41,12 @@ fleetRouter.put(
       return c.json({ error: results.error }, 400);
     }
   }),
+
   updateFleet
 );
 
 fleetRouter.delete("/fleet/:id", deleteFleet);
 
 fleetRouter.get("/fleet/limit/:limit", limitFleet);
+
+fleetRouter.get("/fleet-vehicles", fleetWithVehicle);

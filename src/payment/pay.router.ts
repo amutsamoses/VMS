@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
-import {paymentSchema} from "../validators";
+import { paymentSchema } from "../validators";
 
 import {
   listPayment,
@@ -9,6 +9,9 @@ import {
   updatePayment,
   deletePayment,
   limitPayment,
+  createPaymentIntent,
+  paymentWithBooking,
+  createCheckoutSession,
 } from "./pay.controller";
 
 import {
@@ -29,6 +32,7 @@ payRouter.post(
       return c.json({ error: results.error }, 400);
     }
   }),
+
   createPayment
 );
 
@@ -45,3 +49,9 @@ payRouter.put(
 payRouter.delete("/payment/:id", deletePayment);
 
 payRouter.get("/payment/limit/:limit", limitPayment);
+
+payRouter.post("/payment-intent", createPaymentIntent);
+
+payRouter.get("/payment-with-booking", paymentWithBooking);
+
+payRouter.post("/checkout-session", createCheckoutSession);

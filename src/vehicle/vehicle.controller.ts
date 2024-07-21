@@ -7,6 +7,7 @@ import {
   createVehicleService,
   updateVehicleService,
   deleteVehicleService,
+  vehicleWithDetailService,
 } from "./vehicle.service";
 
 export const listVehicle = async (c: Context) => {
@@ -104,6 +105,18 @@ export const limitVehicle = async (c: Context) => {
     }
 
     const vehicles = await limitVehicleService(limit);
+    if (vehicles === null || vehicles.length === 0) {
+      return c.text("No vehicles found", 404);
+    }
+    return c.json(vehicles, 200);
+  } catch (error: any) {
+    return c.json({ error: error?.message }, 500);
+  }
+};
+
+export const vehicleWithDetail = async (c: Context) => {
+  try {
+    const vehicles = await vehicleWithDetailService();
     if (vehicles === null || vehicles.length === 0) {
       return c.text("No vehicles found", 404);
     }

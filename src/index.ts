@@ -4,7 +4,7 @@ import { serve } from "@hono/node-server";
 import { HTTPException } from "hono/http-exception";
 import { logger } from "hono/logger";
 import { csrf } from "hono/csrf";
-import { html, raw } from "hono/html";
+import { cors } from "hono/cors";
 import { trimTrailingSlash } from "hono/trailing-slash";
 
 //importing the routes
@@ -39,6 +39,15 @@ app.get("/timeout", async (c) => {
   await new Promise((resolve) => setTimeout(resolve, 11000));
   return c.text("data after 5 seconds", 200);
 });
+
+app.use(
+  "*",
+  cors({
+    origin: "http://localhost:5173", // Allow only your frontend's origin
+    allowMethods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed methods
+    allowHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
+  })
+);
 
 //routes
 app.route("/", userRouter);

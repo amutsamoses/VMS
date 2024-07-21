@@ -7,11 +7,11 @@ import {
   updateUser,
   deleteUser,
   userWithNameiLike,
+  userWithDetail,
 } from "./user.controller";
 import { userSchema } from "../validators";
 import {
   adminRoleAuth,
-  authMiddleware,
   userRoleAuth,
   bothRoleAuth,
 } from "../middleware/bearAuth";
@@ -24,8 +24,8 @@ interface TUsers {
   email: string;
 }
 
-userRouter.get("/users", bothRoleAuth, listUsers);
-userRouter.get("/users/:id", bothRoleAuth, getSingleUser);
+userRouter.get("/users", listUsers);
+userRouter.get("/users/:id", getSingleUser);
 userRouter.post(
   "/users",
   zValidator("json", userSchema, (results, c) => {
@@ -33,10 +33,12 @@ userRouter.post(
       return c.json(results.error, 400);
     }
   }),
-  adminRoleAuth,
+
   createUser
 );
-userRouter.put("/users/:id", adminRoleAuth, updateUser);
-userRouter.delete("/users/:id", adminRoleAuth, deleteUser);
+userRouter.put("/users/:id", updateUser);
+userRouter.delete("/users/:id", deleteUser);
 
 userRouter.get("/users_with_name", userWithNameiLike);
+
+userRouter.get("/userswithdetails", userWithDetail);

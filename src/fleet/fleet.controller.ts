@@ -7,6 +7,7 @@ import {
   updateFleetService,
   deleteFleetService,
   limitFleetService,
+  fleetWithVehicleService,
 } from "./fleet.service";
 
 export const listFleet = async (c: Context) => {
@@ -44,6 +45,17 @@ export const getFleetById = async (c: Context) => {
 export const createFleet = async (c: Context) => {
   try {
     const fleet = await c.req.json();
+
+    // convert acquisition_date to string
+    //convert booking_date and return_date to string
+    if (fleet.acquisition_date) {
+      fleet.acquisition_date = new Date(fleet.acquisition_date);
+    }
+
+    if (fleet.acquisition_date) {
+      fleet.acquisition_date = new Date(fleet.acquisition_date);
+    }
+
     const result = await createFleetService(fleet);
 
     if (!result) {
@@ -97,6 +109,19 @@ export const limitFleet = async (c: Context) => {
     const limit = Number(c.req.query("limit"));
 
     const fleet = await limitFleetService(limit);
+    if (fleet === null || fleet.length === 0) {
+      return c.text("No fleet found", 404);
+    }
+    return c.json(fleet, 200);
+  } catch (error: any) {
+    return c.json({ error: error?.message }, 500);
+  }
+};
+
+//fleet with vehicle
+export const fleetWithVehicle = async (c: Context) => {
+  try {
+    const fleet = await fleetWithVehicleService();
     if (fleet === null || fleet.length === 0) {
       return c.text("No fleet found", 404);
     }

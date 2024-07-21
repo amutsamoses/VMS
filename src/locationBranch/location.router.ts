@@ -9,6 +9,7 @@ import {
   updateLocationsAndBranches,
   deleteLocationsAndBranches,
   limitLocationsAndBranches,
+  locationWithBookings,
 } from "./location.controller";
 import {
   adminRoleAuth,
@@ -28,6 +29,7 @@ locationBranchRouter.post(
       return c.json({ error: results.error }, 400);
     }
   }),
+
   createLocationsAndBranches
 );
 
@@ -47,3 +49,5 @@ locationBranchRouter.delete(
 );
 
 locationBranchRouter.get("/locationsBranches/limit", limitLocationsAndBranches);
+
+locationBranchRouter.get("/locationsBranches-bookings", locationWithBookings);

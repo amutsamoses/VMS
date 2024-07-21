@@ -9,6 +9,7 @@ import {
   updateBooking,
   deleteBooking,
   limitBooking,
+  bookingWithUser,
 } from "./booking.controller";
 import {
   adminRoleAuth,
@@ -18,8 +19,8 @@ import {
 
 export const bookingRouter = new Hono();
 
-bookingRouter.get("/bookings", listBooking);
-bookingRouter.get("/bookings/:id", getBookingById);
+bookingRouter.get("/bookings", adminRoleAuth, listBooking);
+bookingRouter.get("/bookings/:id", bothRoleAuth, getBookingById);
 
 bookingRouter.post(
   "/bookings",
@@ -28,6 +29,7 @@ bookingRouter.post(
       return c.json({ error: results.error }, 400);
     }
   }),
+  adminRoleAuth,
   createBooking
 );
 
@@ -38,9 +40,12 @@ bookingRouter.put(
       return c.json({ error: results.error }, 400);
     }
   }),
+  adminRoleAuth,
   updateBooking
 );
 
-bookingRouter.delete("/bookings/:id", deleteBooking);
+bookingRouter.delete("/bookings/:id", adminRoleAuth, deleteBooking);
 
-// bookingRouter.get("/bookings", limitBooking);
+bookingRouter.get("/bookings", limitBooking);
+
+bookingRouter.get("/bookings-users", bookingWithUser);

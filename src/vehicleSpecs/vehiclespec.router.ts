@@ -9,6 +9,10 @@ import {
   updateVehicleSpecs,
   deleteVehicleSpecs,
   limitVehicleSpecs,
+  vehicleSpecWithVehicle,
+  createVehicleSpecWithVehicle,
+  updateVehicleSpecWithVehicle,
+  deleteVehicleSpecWithVehicle,
 } from "./vehiclespec.controller";
 import {
   adminRoleAuth,
@@ -42,3 +46,19 @@ vehicleSpecRouter.put(
 );
 
 vehicleSpecRouter.delete("/vehiclespecs/:id", deleteVehicleSpecs);
+
+vehicleSpecRouter.get("/vehiclespecs/limit/:limit", limitVehicleSpecs);
+
+vehicleSpecRouter.get("/vehiclespecs-with-vehicles", vehicleSpecWithVehicle);
+
+vehicleSpecRouter.post("/vehiclespecs-vehicles", createVehicleSpecWithVehicle);
+
+vehicleSpecRouter.put(
+  "/vehiclespecs-vehicles/:id",
+  updateVehicleSpecWithVehicle
+);
+
+vehicleSpecRouter.delete(
+  "/vehiclespecs-vehicles/:id",
+  deleteVehicleSpecWithVehicle
+);

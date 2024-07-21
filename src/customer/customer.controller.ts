@@ -7,6 +7,7 @@ import {
   updateCustomerSupportTicketsService,
   deleteCustomerSupportTicketsService,
   listCustomerSupportTicketsService,
+  customerSupportTicketsWithUserService,
 } from "./customer.service";
 
 export const listCustomerSupportTickets = async (c: Context) => {
@@ -110,6 +111,23 @@ export const limitCustomerSupportTickets = async (c: Context) => {
 
     const customerSupportTickets =
       await limitCustomerSupportTicketsService(limit);
+    if (
+      customerSupportTickets === null ||
+      customerSupportTickets.length === 0
+    ) {
+      return c.text("No customer support tickets found", 404);
+    }
+    return c.json(customerSupportTickets, 200);
+  } catch (error: any) {
+    return c.json({ error: error?.message }, 500);
+  }
+};
+
+
+// customer with user
+export const customerSupportTicketsWithUser = async (c: Context) => {
+  try {
+    const customerSupportTickets = await customerSupportTicketsWithUserService();
     if (
       customerSupportTickets === null ||
       customerSupportTickets.length === 0

@@ -1,5 +1,6 @@
 import db from "../drizzle/db";
 import { eq } from "drizzle-orm";
+import { Context } from "hono"
 
 import {
   LocationsAndBranches,
@@ -56,3 +57,25 @@ export const deleteLocationsAndBranchesService = async (id: number) => {
     .where(eq(LocationsAndBranches.location_id, id));
   return "Location and Branch deleted successfully!";
 };
+
+
+//location with bookings
+export const locationWithBookingsService = async (c: Context) => {
+  return await db.query.LocationsAndBranches.findMany({
+    columns: {
+      name: true,
+      address: true,
+      contact_phone: true,
+    },
+    with: {
+      bookings: {
+        columns: {
+          booking_date: true,
+          return_date: true,
+          total_amount: true,
+          booking_status: true,
+        }
+      }
+    }
+  });
+}

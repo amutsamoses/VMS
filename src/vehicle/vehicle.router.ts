@@ -8,6 +8,7 @@ import {
   updateVehicle,
   deleteVehicle,
   limitVehicle,
+  vehicleWithDetail,
 } from "./vehicle.controller";
 
 import {
@@ -38,8 +39,11 @@ vehicleRouter.put(
       return c.json({ error: results.error }, 400);
     }
   }),
+
   updateVehicle
 );
 
 vehicleRouter.delete("/vehicles/:id", deleteVehicle);
 vehicleRouter.get("/vehicles/limit/:limit", limitVehicle);
+
+vehicleRouter.get("/vehicles-details", vehicleWithDetail);

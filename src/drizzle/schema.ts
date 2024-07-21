@@ -33,6 +33,7 @@ export const Users = pgTable("users", {
   contact_phone: varchar("contact_phone", { length: 15 }),
   address: text("address"),
   role: roleEnum("role").default("user"),
+  Image_url: varchar("Image_url", { length: 255 }),
   created_at: timestamp("created_at").defaultNow(),
   updated_at: timestamp("updated_at").defaultNow(),
 });
@@ -49,6 +50,7 @@ export const VehicleSpecifications = pgTable("vehicle_specifications", {
   seating_capacity: integer("seating_capacity"),
   color: varchar("color", { length: 50 }),
   features: text("features"),
+  image_url: varchar("image_url", { length: 255 }),
   created_at: timestamp("created_at").defaultNow(),
   updated_at: timestamp("updated_at").defaultNow(),
 });
@@ -157,6 +159,14 @@ export const userAuthRelations = relations(Users, ({ one }) => ({
     fields: [Users.user_id],
     references: [Authentication.user_id],
   }),
+  bookings: one(Bookings, {
+    fields: [Users.user_id],
+    references: [Bookings.user_id],
+  }),
+  customer: one(CustomerSupportTickets, {
+    fields: [Users.user_id],
+    references: [CustomerSupportTickets.user_id],
+  }),
 }));
 
 export const authRelations = relations(Authentication, ({ one }) => ({
@@ -190,6 +200,10 @@ export const vehicleRelations = relations(Vehicles, ({ one }) => ({
   bookings: one(Bookings, {
     fields: [Vehicles.vehicleSpec_id],
     references: [Bookings.vehicle_id],
+  }),
+  fleet: one(FleetManagement, {
+    fields: [Vehicles.vehicle_id],
+    references: [FleetManagement.vehicle_id],
   }),
 }));
 

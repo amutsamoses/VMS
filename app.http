@@ -1,17 +1,32 @@
 
 
 ###
-GET http://localhost:8000/api/ok
+GET http://localhost:3000/api/ok
 
+// admin
+###
+GET http://localhost:3000/api/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 
 ###
-GET http://localhost:8000/api/users
+GET http://localhost:3000/api/users/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+// user 
+###
+GET http://localhost:3000/api/users/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoia2VwaGFybW9zZXMzMDdAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MjA3ODYwNjAsImV4cCI6MTcyMDc5Njg2MH0.BkiA2pBekZIL8mH7V8_6xQhaKn4pZ_tTypEKyPmYxl8
 
 ###
-GET http://localhost:8000/api/users/4
+GET http://localhost:3000/api/users/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoia2VwaGFybW9zZXMzMDdAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MjA3ODYwNjAsImV4cCI6MTcyMDc5Njg2MH0.BkiA2pBekZIL8mH7V8_6xQhaKn4pZ_tTypEKyPmYxl8
 
 ###
-POST http://localhost:8000/api/users
+GET http://localhost:3000/api/userswithdetails
+
+###
+POST http://localhost:3000/api/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 Content-Type: application/json
     
     {
@@ -23,7 +38,8 @@ Content-Type: application/json
     }
 
 ###
-POST http://localhost:8000/api/users
+POST http://localhost:3000/api/users
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 Content-Type: application/json
     
     {
@@ -34,22 +50,9 @@ Content-Type: application/json
         "role": "user"
     }
 
-
-
 ###
-POST http://localhost:8000/api/users
-Content-Type: application/json
-    
-    {
-        "full_name": "Dracula Mutsa",
-        "email": "amutsamoses@gmail.com",
-        "contact_phone": "0700000000",
-        "address": "Nakuru, Kenya",
-        "role": "admin"
-    }
-
-###
-PUT http://localhost:8000/api/users/7
+PUT http://localhost:3000/api/users/7
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 Content-Type: application/json
     
     {
@@ -60,60 +63,166 @@ Content-Type: application/json
         "role": "user"
     }
 
-
-
-
-
-
-
-
-
-
 ###
-DELETE http://localhost:8000/api/users/18
+DELETE http://localhost:3000/api/users/18
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 
 /////Authentication and Authorization/////
 
 ###
-POST http://localhost:8000/api/auth/register
+POST http://localhost:3000/api/auth/register
 Content-Type: application/json
     
     {
-        "full_name": "Jane Smith",
-        "password": "password345",
-        "email": "jane.smith@example.com",
-        "contact_phone": "0700000000",
+        "full_name": "Dan Doe",
+        "password": "password567",
+        "email": "victorpeace47@gmail.com",
+        "contact_phone": "070056000",
+        "address": "Nairobi, Kenya",
         "role": "user"
     }
 
 ###
-POST http://localhost:8000/api/auth/login
+POST http://localhost:3000/api/auth/register
 Content-Type: application/json
     
     {
-        "email": "jane.smith@example.com",
-        "password": "password345"
+        "full_name": "Kephar Mutsa",
+        "email": "kepharmoses307@gmail.com",
+        "contact_phone": "070056000",
+        "address": "Nairobi, Kenya",
+        "password": "password567",
+        "role": "user"
+    }
+
+
+###
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+    
+    {
+        "full_name": "Dracula Tepes",
+        "email": "draculatepes@gmail.com",
+        "contact_phone": "0110056800",
+        "address": "Transylvania, Romania",
+        "password": "password910",
+        "role": "admin"
+    }
+
+###
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+    
+    {
+        "email": "draculatepes@gmail.com",
+        "password": "password910"
+    }
+
+###
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+    
+    {
+        "email": "john.doe@example.com",
+        "password": "password123"
+    }
+
+###
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+    
+    {
+        "email": "kepharmoses307@gmail.com",
+        "password": "password567"
+    }
+
+
+###
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+    
+    {
+        "email": "maximusprime@gmail.com",
+        "password": "password789"
+    }
+
+###
+POST http://localhost:3000/api/payment-intent
+Content-Type: application/json
+    
+    {
+        "booking_id": 9,
+        "amount": 377.50,
+        "payment_method": "card"
+
     }
 
 
 
+###
+GET http://localhost:3000/api/checkout-session
+
+###
+GET http://localhost:3000/success
+
+
+### Create Checkout Session
+POST http://localhost:3000/api/checkout-session
+Content-Type: application/json
+
+{
+  "booking_id": 11,
+  "amount": 385.00,
+  "payment_method": "card"
+}
 
 
 
 
 ###
-GET http://localhost:8000/api/auth/v1
+GET http://localhost:3000/api/auth/v1
 
+
+//both
+###
+GET http://localhost:3000/api/vehiclespecs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+###
+GET http://localhost:3000/api/vehiclespecs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoia2VwaGFybW9zZXMzMDdAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MjA3ODYwNjAsImV4cCI6MTcyMDc5Njg2MH0.BkiA2pBekZIL8mH7V8_6xQhaKn4pZ_tTypEKyPmYxl8
+
+
+//both
+###
+GET http://localhost:3000/api/vehiclespecs/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+//both
+###
+GET http://localhost:3000/api/vehiclespecs/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoia2VwaGFybW9zZXMzMDdAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MjA3ODYwNjAsImV4cCI6MTcyMDc5Njg2MH0.BkiA2pBekZIL8mH7V8_6xQhaKn4pZ_tTypEKyPmYxl8
+
+###
+POST http://localhost:3000/api/vehiclespecs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+    
+    {
+        "manufacturer": "Toyota",
+        "model": "Corolla",
+        "year": 2019,
+        "fuel_type": "Petrol",
+        "engine_capacity": "1500cc",
+        "transmission": "Automatic",
+        "seating_capacity": 5,
+        "color": "White",
+        "features": "Air Conditioning, Power Steering, Power Windows, Anti-lock Braking System, Airbag, Alloy Wheels, Leather Seats, Central Locking, Fog Lights, CD Player, AM/FM Radio, Cup Holders, Electric Mirrors, Electric Windows, Foldable Rear Seats, Rear Wiper, Tinted Windows, Keyless Entry, Reverse Camera, Steering Controls, Sunroof, Xenon Lights"
+    }
 
 
 ###
-GET http://localhost:8000/api/vehiclespecs
-
-###
-GET http://localhost:8000/api/vehiclespecs/4
-
-###
-POST http://localhost:8000/api/vehiclespecs
+POST http://localhost:3000/api/vehiclespecs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 Content-Type: application/json
     
     {
@@ -129,34 +238,58 @@ Content-Type: application/json
     }
 
 ###
-PUT http://localhost:8000/api/vehiclespecs/7
+DELETE http://localhost:3000/api/vehiclespecs/7
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+
+
+###
+GET http://localhost:3000/api/
+
+
+###
+GET http://localhost:3000/api/vehiclespecs-with-vehicles
+
+
+###
+POST http://localhost:3000/api/vehiclespecs-vehicles
 Content-Type: application/json
     
-    {
-        "manufacturer": "Volvo",
-        "model": "XC90",
-        "year": 2019,
-        "fuel_type": "Diesel",
-        "engine_capacity": "2000cc",
+   {
+        "vehicleSpec_id": 7,
+        "rental_rate": 5000,
+        "availability": true,
+        "manufacturer": "Audi",
+        "model": "Q5",
+        "year": 2022,
+        "fuel_type": "Petrol",
+        "engine_capacity": "3000cc",
         "transmission": "Automatic",
         "seating_capacity": 5,
-        "color": "White",
+        "color": "Black",
         "features": "Air Conditioning, Power Steering, Power Windows, Anti-lock Braking System, Airbag, Alloy Wheels, Leather Seats, Central Locking, Fog Lights, CD Player, AM/FM Radio, Cup Holders, Electric Mirrors, Electric Windows, Foldable Rear Seats, Rear Wiper, Tinted Windows, Keyless Entry, Reverse Camera, Steering Controls, Sunroof, Xenon Lights"
     }
 
+###
+DELETE http://localhost:3000/api/vehiclespecs-vehicles/7
+
+
+
+
+//both
+###
+GET http://localhost:3000/api/vehicles/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoia2VwaGFybW9zZXMzMDdAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MjA3ODYwNjAsImV4cCI6MTcyMDc5Njg2MH0.BkiA2pBekZIL8mH7V8_6xQhaKn4pZ_tTypEKyPmYxl8
+
+//both
+###
+GET http://localhost:3000/api/vehicles
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoia2VwaGFybW9zZXMzMDdAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MjA3ODYwNjAsImV4cCI6MTcyMDc5Njg2MH0.BkiA2pBekZIL8mH7V8_6xQhaKn4pZ_tTypEKyPmYxl8
+
 
 ###
-DELETE http://localhost:8000/api/vehiclespecs/7
-
-
-###
-GET http://localhost:8000/api/vehicles/5
-
-###
-GET http://localhost:8000/api/vehicles
-
-###
-POST http://localhost:8000/api/vehicles
+POST http://localhost:3000/api/vehicles
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 Content-Type: application/json
     
     {
@@ -166,7 +299,22 @@ Content-Type: application/json
     }
 
 ###
-PUT http://localhost:8000/api/vehicles/6
+GET http://localhost:3000/api/vehicles-details
+
+###
+POST http://localhost:3000/api/vehicles
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+    
+    {
+        "vehicleSpec_id": 6,
+        "rental_rate": 5000,
+        "availability": true
+    }
+
+###
+PUT http://localhost:3000/api/vehicles/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 Content-Type: application/json
     
     {
@@ -176,19 +324,207 @@ Content-Type: application/json
     }
 
 ###
-DELETE http://localhost:8000/api/vehicles/6
+DELETE http://localhost:3000/api/vehicles/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
 
 ###
-GET http://localhost:8000/api/bookings
+GET http://localhost:3000/api/bookings
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+//both
+###
+GET http://localhost:3000/api/bookings/7
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
 
 ###
-GET http://localhost:8000/api/locationsBranches
+GET http://localhost:3000/api/bookings-users
 
 ###
-GET http://localhost:8000/api/customerSupportTickets
+POST http://localhost:3000/api/bookings
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+    
+    {
+        "user_id": 6,
+        "vehicle_id": 6,
+        "location_id": 2,
+        "booking_date": "2021-07-20",
+        "return_date": "2021-07-25",
+        "total_amount": 25000,
+        "booking_status": "Pending"
+    }
+
+
+    ###
+PUT http://localhost:3000/api/bookings/7
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+    
+    {
+        "user_id": 6,
+        "vehicle_id": 6,
+        "location_id": 2,
+        "booking_date": "2021-07-20",
+        "return_date": "2021-07-25",
+        "total_amount": 25000,
+        "booking_status": "Approved"
+    }
 
 ###
-GET http://localhost:8000/api/fleet
+GET http://localhost:3000/api/locationsBranches
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+//both
+###
+GET http://localhost:3000/api/locationsBranches/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
 
 ###
-GET http://localhost:8000/api/payment
+POST http://localhost:3000/api/locationsBranches
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+        
+        {
+            "name": "Nairobi",
+            "address": "Nairobi, Kenya",
+            "contact_phone": "0700000000"
+        }
+###
+PUT http://localhost:3000/api/locationsBranches/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+        
+        {
+            "name": "Nairobi",
+            "address": "Nairobi, Kenya",
+            "contact_phone": "0700000000"
+        }
+
+###
+GET http://localhost:3000/api/locationsBranches-bookings
+
+###
+GET http://localhost:3000/api/customerSupportTickets
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+//both
+GET http://localhost:3000/api/customerSupportTickets/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+
+###
+GET http://localhost:3000/api/customerSupportTickets-users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+
+
+###
+POST http://localhost:3000/api/customerSupportTickets
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+        
+        {
+            "user_id": 7,
+            "subject": "Booking Issue",
+            "description": "I have an issue with my booking",
+            "status": "Pending"
+        }
+
+###
+PUT http://localhost:3000/api/customerSupportTickets/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+        
+        {
+            "user_id": 6,
+            "subject": "Booking Issue",
+            "description": "I have an issue with my booking",
+            "status": "Resolved"
+        }
+
+###
+DELETE http://localhost:3000/api/customerSupportTickets/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+
+###
+GET http://localhost:3000/api/fleet
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+//both
+GET http://localhost:3000/api/fleet/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+
+###
+POST http://localhost:3000/api/fleet
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+        
+        {
+            "vehicle_id": 6,
+            "acquisition_date": "2021-07-20",
+            "depreciation_rate": 5000,
+            "current_value": 25000,
+            "maintenance_cost": 5000,
+            "status": "Active"
+        }
+
+
+###
+GET http://localhost:3000/api/fleet-vehicles
+
+###
+DELETE http://localhost:3000/api/fleet/7
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+
+###
+GET http://localhost:3000/api/payment
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+//both
+GET http://localhost:3000/api/payment/20
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+
+###
+POST http://localhost:3000/api/payment
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+        
+        {
+            "booking_id": 7,
+            "amount": 25000,
+            "payment_status": "Pending",
+            "payment_date": "2021-07-20",
+            "payment_method": "card",
+            "transaction_id": "1234567890"
+        }
+
+
+###
+PUT http://localhost:3000/api/payment/20
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+Content-Type: application/json
+        
+        {
+            "booking_id": 7,
+            "amount": 2000,
+            "payment_status": "Approved",
+            "payment_date": "2021-07-20",
+            "payment_method": "card",
+            "transaction_id": "1234567890"
+        }
+###
+DELETE http://localhost:3000/api/payment/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
+
+
+
+###
+GET http://localhost:3000/api/payment-with-booking
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY

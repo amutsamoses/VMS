@@ -9,7 +9,13 @@ import {
   updateCustomerSupportTickets,
   deleteCustomerSupportTickets,
   limitCustomerSupportTickets,
+  customerSupportTicketsWithUser,
 } from "./customer.controller";
+import {
+  adminRoleAuth,
+  userRoleAuth,
+  bothRoleAuth,
+} from "../middleware/bearAuth";
 
 export const customerRouter = new Hono();
 
@@ -17,6 +23,7 @@ customerRouter.get("/customerSupportTickets", listCustomerSupportTickets);
 
 customerRouter.get(
   "/customerSupportTickets/:id",
+
   getCustomerSupportTicketsById
 );
 
@@ -48,4 +55,9 @@ customerRouter.delete(
 customerRouter.get(
   "/customerSupportTickets/limit",
   limitCustomerSupportTickets
+);
+
+customerRouter.get(
+  "/customerSupportTickets-users",
+  customerSupportTicketsWithUser
 );

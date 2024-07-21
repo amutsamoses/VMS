@@ -6,6 +6,7 @@ import {
   updateUserService,
   deleteUserService,
   userWithNameiLikeService,
+  userWithDetailService,
 } from "./user.service";
 import * as bcrypt from "bcrypt";
 
@@ -100,24 +101,26 @@ export const deleteUser = async (c: Context) => {
   }
 };
 
-// //get user with order
-// export const userWithOrder = async (c: Context) => {
-//   try {
-//     const data = await userWithOrderService();
-//     if (data == null) {
-//       return c.text("no user found!😶‍🌫️👽", 404);
-//     }
-//     return c.json(data, 200);
-//   } catch (error: any) {
-//     return c.json({ error: error?.message }, 400);
-//   }
-// };
+
 
 //get user with name
 export const userWithNameiLike = async (c: Context) => {
   try {
     const name = String(c.req.query("name"));
     const data = await userWithNameiLikeService(name);
+    if (data == null) {
+      return c.text("no user found!😶‍🌫️👽", 404);
+    }
+    return c.json(data, 200);
+  } catch (error: any) {
+    return c.json({ error: error?.message }, 400);
+  }
+};
+
+//get user with details
+export const userWithDetail = async (c: Context) => {
+  try {
+    const data = await userWithDetailService();
     if (data == null) {
       return c.text("no user found!😶‍🌫️👽", 404);
     }

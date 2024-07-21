@@ -1,4 +1,4 @@
-import { eq, ilike } from "drizzle-orm";
+import { eq, ilike, and } from "drizzle-orm";
 import db from "../drizzle/db";
 import { TIUsers, TSUsers, Users } from "../drizzle/schema";
 
@@ -16,7 +16,25 @@ export const getSingleUserService = async (
 };
 
 //create user
-export const createUserService = async (user: TIUsers): Promise<TIUsers> => {
+export const createUserService = async (user: TIUsers): Promise<TIUsers | string> => {
+  const { email, contact_phone } = user;
+
+  if (!email || !contact_phone) {
+    throw new Error("Email or Contact Phone is undefined.");
+  }
+
+  //check if the email and contact_phone exists in the database
+  const existingUser = await db.select().from(Users).where(
+    and(
+      eq(Users.email, email),
+      eq(Users.contact_phone, contact_phone)  
+    )
+  ).execute();
+
+  if (existingUser){
+    return "A user with this email and contact_phone already exists.";
+  }
+
   await db.insert(Users).values(user);
   return user;
 };
@@ -30,7 +48,7 @@ export const updateUserService = async (
   return user;
 };
 //delete user
-export const deleteUserService = async (id: number) => {
+export const deleteUserService = async (id: number): Promise<string> => {
   await db.delete(Users).where(eq(Users.user_id, id));
   return "user deleted successfully!😑";
 };
@@ -44,14 +62,23 @@ export const userWithNameiLikeService = async (
     .where(ilike(Users.full_name, `%${name}%`));
 };
 
-//get user with order
-// export const userWithOrderService = async () => {
-//   return await db.query.Users.findFirst({
-//     with: {
-//       orders: true,
-//       addresses: true,
-//       drivers: true,
-//       comments: true,
-//     },
-//   });
-// };
+//user with bookings and customer support tickets
+export const userWithDetailService = async () => {
+  return await db.query.Users.findMany({
+    columns: {
+      user_id: false,
+      created_at: false,
+      updated_at: false,
+    },
+    with: {
+      bookings: {
+        columns: {
+          booking_date: true,
+          return_date: true,
+          total_amount: true,
+          booking_status: true,
+        },
+      },
+    },
+  });
+};

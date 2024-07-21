@@ -7,6 +7,7 @@ import {
   updateLocationsAndBranchesService,
   deleteLocationsAndBranchesService,
   limitLocationsAndBranchesService,
+  locationWithBookingsService,
 } from "./location.service";
 
 export const listLocationsBranches = async (c: Context) => {
@@ -107,6 +108,20 @@ export const limitLocationsAndBranches = async (c: Context) => {
       return c.text("No location and branches found", 404);
     }
     return c.json(locationsAndBranches, 200);
+  } catch (error: any) {
+    return c.json({ error: error?.message }, 500);
+  }
+};
+
+
+//location with bookings
+export const locationWithBookings = async (c: Context) => {
+  try {
+    const locations = await locationWithBookingsService(c);
+    if (locations === null || locations.length === 0) {
+      return c.text("No locations found", 404);
+    }
+    return c.json(locations, 200);
   } catch (error: any) {
     return c.json({ error: error?.message }, 500);
   }
