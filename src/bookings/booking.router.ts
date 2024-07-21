@@ -19,8 +19,8 @@ import {
 
 export const bookingRouter = new Hono();
 
-bookingRouter.get("/bookings", adminRoleAuth, listBooking);
-bookingRouter.get("/bookings/:id", bothRoleAuth, getBookingById);
+bookingRouter.get("/bookings", listBooking);
+bookingRouter.get("/bookings/:id", getBookingById);
 
 bookingRouter.post(
   "/bookings",
@@ -29,7 +29,7 @@ bookingRouter.post(
       return c.json({ error: results.error }, 400);
     }
   }),
-  adminRoleAuth,
+
   createBooking
 );
 
@@ -40,11 +40,11 @@ bookingRouter.put(
       return c.json({ error: results.error }, 400);
     }
   }),
-  adminRoleAuth,
+
   updateBooking
 );
 
-bookingRouter.delete("/bookings/:id", adminRoleAuth, deleteBooking);
+bookingRouter.delete("/bookings/:id", deleteBooking);
 
 bookingRouter.get("/bookings", limitBooking);
 

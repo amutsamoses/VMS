@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteVehicleSpecWithVehicle = exports.updateVehicleSpecWithVehicle = exports.createVehicleSpecWithVehicle = exports.vehicleSpecWithVehicle = exports.limitVehicleSpecs = exports.deleteVehicleSpecs = exports.updateVehicleSpecs = exports.createVehicleSpecs = exports.getVehicleSpecById = exports.listVehicleSpec = void 0;
 const vehiclespec_service_1 = require("./vehiclespec.service");
 const zod_1 = require("zod");
-const validators_1 = require("../validators");
 const listVehicleSpec = async (c) => {
     try {
         const limit = c.req.query("limit")
@@ -141,26 +140,11 @@ const createVehicleSpecWithVehicle = async (c) => {
 exports.createVehicleSpecWithVehicle = createVehicleSpecWithVehicle;
 const updateVehicleSpecWithVehicle = async (c) => {
     try {
-        // Parse and validate the request body
         const body = await c.req.json();
-        const { vehicleSpecId, vehicleSpec, vehicle } = validators_1.updateVehicleSpecWithVehicleSchema.parse(body);
-        // Convert features to a single string or null if it's an empty array
-        const features = (vehicleSpec.features ?? []).length > 0
-            ? vehicleSpec.features.join(", ")
-            : null;
-        // Update the vehicleSpec object with the modified features property
-        const updatedVehicleSpec = {
-            ...vehicleSpec,
-            features,
-        };
-        // Update the rental_rate property to be of type string
-        const updatedVehicle = {
-            ...vehicle,
-            rental_rate: vehicle.rental_rate?.toString() ?? "",
-        };
-        // Call the service to update the vehicle and its specifications
-        const result = await (0, vehiclespec_service_1.updateVehicleSpecServiceWithVehicleService)(updatedVehicleSpec, updatedVehicle, vehicleSpecId // Pass the vehicleSpecId as a separate argument
-        );
+        const vehicleSpec = body.vehicleSpec;
+        const vehicle = body.vehicle;
+        const vehicleSpecId = parseInt(c.req.param("vehicleSpecId"), 10);
+        const result = await (0, vehiclespec_service_1.updateVehicleSpecServiceWithVehicleService)(vehicleSpec, vehicle, vehicleSpecId);
         // Return the success response
         return c.json({ message: result }, 200);
     }
