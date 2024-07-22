@@ -19,7 +19,7 @@ import { payRouter } from "./payment/pay.router";
 import { authRouter } from "./auth/auth.router";
 
 //initialize hono
-const app = new Hono().basePath("/api");
+const app = new Hono();
 
 const custonTimeoutException = () =>
   new HTTPException(408, {

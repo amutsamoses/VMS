@@ -19,7 +19,7 @@ export interface TVehicleSpecification {
   transmission: string;
   seating_capacity: number;
   color: string;
-  features: string[];
+  features: string;
   image_url: string;
   vehicles?: TVehicles[];
   vehicleSpec_id?: number;
@@ -116,26 +116,29 @@ export const vehicleSpecWithVehicleService = async () => {
         transmission: spec.transmission ?? "",
         seating_capacity: spec.seating_capacity ?? 0,
         color: spec.color ?? "",
-        features: Array.isArray(spec.features) ? spec.features : [],
+        features: Array.isArray(spec.features) ? spec.features.join(", ") : "",
         image_url: spec.image_url ?? "",
       };
     }
 
     return {
-      vehicleSpec_id: spec.vehicleSpec_id,
-      manufacturer: spec.manufacturer,
-      model: spec.model,
-      year: spec.year,
-      fuel_type: spec.fuel_type,
-      engine_capacity: spec.engine_capacity ?? "",
-      transmission: spec.transmission ?? "",
-      seating_capacity: spec.seating_capacity ?? 0,
-      color: spec.color ?? "",
-      features: Array.isArray(spec.features) ? spec.features : [],
-      image_url: spec.image_url ?? "",
       vehicle_id: vehicle.vehicle_id,
+      vehicleSpec_id: spec.vehicleSpec_id,
       rental_rate: vehicle.rental_rate,
       availability: vehicle.availability,
+      vehicleSpec: {
+        vehicle_id: vehicle.vehicle_id,
+        manufacturer: spec.manufacturer,
+        model: spec.model,
+        year: spec.year,
+        fuel_type: spec.fuel_type,
+        engine_capacity: spec.engine_capacity ?? "NA",
+        transmission: spec.transmission ?? "",
+        seating_capacity: spec.seating_capacity ?? 0,
+        color: spec.color ?? "",
+        features: spec.features ?? "",
+        vehicle_image: spec.image_url,
+      },
     };
   });
 };
@@ -178,7 +181,7 @@ export const vehicleSpecWithVehicleByIdService = async (
     transmission: vehicleSpec.transmission ?? "",
     seating_capacity: vehicleSpec.seating_capacity ?? 0,
     color: vehicleSpec.color ?? "",
-    features: Array.isArray(vehicleSpec.features) ? vehicleSpec.features : [],
+    features: vehicleSpec.features ?? "",
     image_url: vehicleSpec.image_url ?? "",
   };
 };
