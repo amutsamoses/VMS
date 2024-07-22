@@ -31,7 +31,7 @@ app.use(csrf()); // adds csrf token to the response header preventing csrf attac
 //default route
 app.use(trimTrailingSlash()); // removes trailing slashes from the url
 
-app.get("ok", (c) => {
+app.get("/ok", (c) => {
   return c.text("The server is running😀");
 });
 
