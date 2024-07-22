@@ -43,9 +43,9 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY
 Content-Type: application/json
     
     {
-        "full_name": "Kephar Mutsa",
+        "full_name": "Mephar Mutsa",
         "email": "kepharmoses307@gmail.com",
-        "contact_phone": "0700000000",
+        "contact_phone": "070007654",
         "address": "Nairobi, Kenya",
         "role": "user"
     }
@@ -83,17 +83,19 @@ Content-Type: application/json
     }
 
 ###
-POST http://localhost:3000/api/auth/register
+POST http://localhost:3000/auth/register
 Content-Type: application/json
     
     {
-        "full_name": "Kephar Mutsa",
-        "email": "kepharmoses307@gmail.com",
-        "contact_phone": "070056000",
-        "address": "Nairobi, Kenya",
-        "password": "password567",
+        "full_name": "mephar Mutsa",
+        "email": "mepharmoses307@gmail.com",
+        "contact_phone": "078056560",
+        "address": "Mombasa, Kenya",
+        "password": "password",
         "role": "user"
     }
+
+###
 
 
 ###
@@ -160,14 +162,14 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3000/api/checkout-session
+GET http://localhost:3000/checkout-session
 
 ###
 GET http://localhost:3000/success
 
 
 ### Create Checkout Session
-POST http://localhost:3000/api/checkout-session
+POST http://localhost:3000/checkout-session
 Content-Type: application/json
 
 {
@@ -188,7 +190,7 @@ GET http://localhost:3000/api/auth/v1
 GET http://localhost:3000/api/vehiclespecs
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 ###
-GET http://localhost:3000/api/vehiclespecs
+GET http://localhost:3000/vehiclespecs
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImVtYWlsIjoia2VwaGFybW9zZXMzMDdAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MjA3ODYwNjAsImV4cCI6MTcyMDc5Njg2MH0.BkiA2pBekZIL8mH7V8_6xQhaKn4pZ_tTypEKyPmYxl8
 
 
@@ -243,7 +245,7 @@ Content-Type: application/json
     }
 
 ###
-DELETE http://localhost:3000/api/vehiclespecs/7
+DELETE http://localhost:3000/vehiclespecs/8
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 
 
@@ -253,7 +255,7 @@ GET http://localhost:3000/api/
 
 
 ###
-GET http://localhost:3000/api/vehiclespecs-with-vehicles
+GET http://localhost:3000/vehiclespecs-with-vehicles
 
 
 
@@ -280,7 +282,7 @@ Content-Type: application/json
     }
 
 ###
-DELETE http://localhost:3000/api/vehiclespecs-vehicles/7
+DELETE http://localhost:3000/vehiclespecs-vehicles/8
 
 
 
@@ -338,17 +340,17 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJh
 
 
 ###
-GET http://localhost:3000/api/bookings
+GET http://localhost:3000/bookings
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 
 //both
 ###
-GET http://localhost:3000/api/bookings/7
+GET http://localhost:3000/bookings/8
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 
 
 ###
-GET http://localhost:3000/api/bookings-users
+GET http://localhost:3000/bookings-users
 
 ###
 POST http://localhost:3000/api/bookings

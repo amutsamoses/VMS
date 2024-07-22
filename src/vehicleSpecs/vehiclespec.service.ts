@@ -20,7 +20,6 @@ export interface TVehicleSpecification {
   seating_capacity: number;
   color: string;
   features: string;
-  image_url: string;
   vehicles?: TVehicles[];
   vehicleSpec_id?: number;
   vehicleSpecId?: number;
@@ -29,6 +28,7 @@ export interface TVehicleSpecification {
 export interface TVehicles {
   vehicle_id: number;
   vehicleSpec_id: number;
+  vehicle_image: string;
   rental_rate: number;
   availability: boolean;
 }
@@ -95,6 +95,7 @@ export const vehicleSpecWithVehicleService = async () => {
         columns: {
           vehicle_id: true,
           vehicleSpec_id: true,
+          vehicle_image: true,
           rental_rate: true,
           availability: true,
         },
@@ -117,13 +118,13 @@ export const vehicleSpecWithVehicleService = async () => {
         seating_capacity: spec.seating_capacity ?? 0,
         color: spec.color ?? "",
         features: Array.isArray(spec.features) ? spec.features.join(", ") : "",
-        image_url: spec.image_url ?? "",
       };
     }
 
     return {
       vehicle_id: vehicle.vehicle_id,
       vehicleSpec_id: spec.vehicleSpec_id,
+      vehicle_image: vehicle.vehicle_image,
       rental_rate: vehicle.rental_rate,
       availability: vehicle.availability,
       vehicleSpec: {
@@ -137,7 +138,6 @@ export const vehicleSpecWithVehicleService = async () => {
         seating_capacity: spec.seating_capacity ?? 0,
         color: spec.color ?? "",
         features: spec.features ?? "",
-        vehicle_image: spec.image_url,
       },
     };
   });
@@ -157,9 +157,11 @@ export const vehicleSpecWithVehicleByIdService = async (
     with: {
       vehicles: {
         columns: {
+          vehicle_id: true,
           vehicleSpec_id: true,
           rental_rate: true,
           availability: true,
+          vehicle_image: true,
         },
       },
     },
@@ -182,7 +184,6 @@ export const vehicleSpecWithVehicleByIdService = async (
     seating_capacity: vehicleSpec.seating_capacity ?? 0,
     color: vehicleSpec.color ?? "",
     features: vehicleSpec.features ?? "",
-    image_url: vehicleSpec.image_url ?? "",
   };
 };
 

@@ -50,7 +50,6 @@ export const VehicleSpecifications = pgTable("vehicle_specifications", {
   seating_capacity: integer("seating_capacity"),
   color: varchar("color", { length: 50 }),
   features: text("features"),
-  image_url: varchar("image_url", { length: 255 }),
   created_at: timestamp("created_at").defaultNow(),
   updated_at: timestamp("updated_at").defaultNow(),
 });
@@ -62,8 +61,10 @@ export const Vehicles = pgTable("vehicles", {
     () => VehicleSpecifications.vehicleSpec_id,
     { onDelete: "cascade" }
   ),
+  vehicle_image: varchar("image_url", { length: 255 }),
   rental_rate: decimal("rental_rate").notNull(),
   availability: boolean("availability").default(true),
+
   created_at: timestamp("created_at").defaultNow(),
   updated_at: timestamp("updated_at").defaultNow(),
 });

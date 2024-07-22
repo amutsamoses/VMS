@@ -31,16 +31,16 @@ export const vehicleSpecificationSchema = z.object({
   model: z.string().max(255),
   year: z.number(),
   fuel_type: z.string().max(50),
-  engine_capacity: z.string().max(50),
-  transmission: z.string().max(50),
+  engine_capacity: z.string().max(50).optional(),
+  transmission: z.string().max(50).optional(),
   seating_capacity: z.number(),
   color: z.string().max(50),
   features: z.array(z.string()).optional(),
-  image_url: z.string().max(255),
+  image_url: z.string().optional(),
 });
 
 export const vehicleSchema = z.object({
-  vehicleSpec_id: z.number(),
+  vehicleSpec_id: z.number().optional(),
   rental_rate: z.number(),
   availability: z.boolean(),
 });
