@@ -263,12 +263,12 @@ GET http://localhost:3000/vehiclespecs-with-vehicles
 
 
 ###
-POST http://localhost:3000/api/vehiclespecs-vehicles
+POST http://localhost:3000/vehiclespecs-vehicles
 Content-Type: application/json
     
    {
-        "vehicleSpec_id": 7,
-        "rental_rate": 5000,
+        "vehicle_image": "",
+        "rental_rate": 50.70,
         "availability": true,
         "manufacturer": "Audi",
         "model": "Q5",
@@ -283,7 +283,6 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/vehiclespecs-vehicles/8
-
 
 
 
@@ -353,35 +352,42 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJh
 GET http://localhost:3000/bookings-users
 
 ###
-POST http://localhost:3000/api/bookings
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+    {
+        "user_id": 4,
+        "vehicle_id": 4,
+        "location_id": 3,
+        "booking_date": "2021-07-20",
+        "return_date": "2021-07-25",
+        "total_amount": 455
+    }
+
+
+
+
+
+###
+PUT http://localhost:3000/bookings/7
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 Content-Type: application/json
     
     {
-        "user_id": 6,
-        "vehicle_id": 6,
-        "location_id": 2,
+        "user_id": 4,
+        "vehicle_id": 4,
+        "location_id": 3,
         "booking_date": "2021-07-20",
         "return_date": "2021-07-25",
-        "total_amount": 25000,
-        "booking_status": "Pending"
+        "total_amount": 455
+       
     }
 
 
-    ###
-PUT http://localhost:3000/api/bookings/7
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
-Content-Type: application/json
-    
-    {
-        "user_id": 6,
-        "vehicle_id": 6,
-        "location_id": 2,
-        "booking_date": "2021-07-20",
-        "return_date": "2021-07-25",
-        "total_amount": 25000,
-        "booking_status": "Approved"
-    }
+
+
+
+
 
 ###
 GET http://localhost:3000/api/locationsBranches

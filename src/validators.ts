@@ -35,12 +35,12 @@ export const vehicleSpecificationSchema = z.object({
   transmission: z.string().max(50).optional(),
   seating_capacity: z.number(),
   color: z.string().max(50),
-  features: z.array(z.string()).optional(),
-  image_url: z.string().optional(),
+  features: z.string(z.string()).optional(),
 });
 
 export const vehicleSchema = z.object({
   vehicleSpec_id: z.number().optional(),
+  vehicle_image: z.string().optional(),
   rental_rate: z.number(),
   availability: z.boolean(),
 });
@@ -59,7 +59,6 @@ export const bookingSchema = z.object({
   booking_date: z.string(),
   return_date: z.string(),
   total_amount: z.number(),
-  booking_status: bookingStatusEnum.default("Pending").optional(),
 });
 
 export const locationBranchSchema = z.object({});

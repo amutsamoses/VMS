@@ -224,14 +224,15 @@ export const createVehicleSpecServiceWithVehicleService = async (
 
   // Insert the vehicle
   // get the vehicleSpec_id from the vehicleSpecResult
-  const vehicleSpec_id = vehicleSpecResult[0].id;
+  const vehicleSpecId = vehicleSpecResult[0].id;
 
   await db
     .insert(Vehicles)
     .values({
-      // spread the vehicle object because it contains the vehicleSpec_id
-      ...vehicle,
-      vehicleSpec_id: vehicleSpec_id,
+      vehicle_id: vehicleSpecId,
+      rental_rate: vehicle.rental_rate,
+      availability: vehicle.availability,
+      vehicle_image: vehicle.vehicle_image,
     })
     .execute();
 
