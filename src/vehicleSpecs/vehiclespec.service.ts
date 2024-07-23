@@ -20,7 +20,6 @@ export interface TVehicleSpecification {
   seating_capacity: number;
   color: string;
   features: string;
-  vehicles?: TVehicles[];
   vehicleSpec_id?: number;
   vehicleSpecId?: number;
 }
@@ -31,6 +30,7 @@ export interface TVehicles {
   vehicle_image: string;
   rental_rate: number;
   availability: boolean;
+  vehicleSpecs: TIVehicleSpecifications;
 }
 
 export const listVehicleSpecService = async (

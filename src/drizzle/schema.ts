@@ -33,7 +33,7 @@ export const Users = pgTable("users", {
   contact_phone: varchar("contact_phone", { length: 15 }),
   address: text("address"),
   role: roleEnum("role").default("user"),
-  Image_url: varchar("Image_url", { length: 255 }),
+  profile_image: varchar("Image_url", { length: 255 }),
   created_at: timestamp("created_at").defaultNow(),
   updated_at: timestamp("updated_at").defaultNow(),
 });

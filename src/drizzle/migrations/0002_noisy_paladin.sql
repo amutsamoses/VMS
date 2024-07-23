@@ -1,1 +1,0 @@
-ALTER TABLE "users" ADD COLUMN "Image_url" varchar(255);

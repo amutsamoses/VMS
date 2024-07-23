@@ -263,13 +263,11 @@ GET http://localhost:3000/vehiclespecs-with-vehicles
 
 
 ###
-POST http://localhost:3000/vehiclespecs-vehicles
+PUT http://localhost:3000/vehiclespecs-vehicles/11
 Content-Type: application/json
-    
-   {
-        "vehicle_image": "",
-        "rental_rate": 50.70,
-        "availability": true,
+        
+    {
+        "vehicleSpec": {
         "manufacturer": "Audi",
         "model": "Q5",
         "year": 2022,
@@ -278,8 +276,18 @@ Content-Type: application/json
         "transmission": "Automatic",
         "seating_capacity": 5,
         "color": "Black",
-        "features": "Air Conditioning, Power Steering, Power Windows, Anti-lock Braking System, Airbag, Alloy Wheels, Leather Seats, Central Locking, Fog Lights, CD Player, AM/FM Radio, Cup Holders, Electric Mirrors, Electric Windows, Foldable Rear Seats, Rear Wiper, Tinted Windows, Keyless Entry, Reverse Camera, Steering Controls, Sunroof, Xenon Lights"
+        "features": "Air Conditioning, Windows, Keyless Entry, Reverse Camera, Steering Controls, Sunroof, Xenon Lights"
+        },
+        "vehicle": {
+            "vehicle_image": "",
+            "rental_rate": 50.70,
+            "availability": true
+        }
     }
+
+
+
+
 
 ###
 DELETE http://localhost:3000/vehiclespecs-vehicles/8

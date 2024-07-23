@@ -160,10 +160,15 @@ export const createVehicleSpecWithVehicle = async (c: Context) => {
 
 export const updateVehicleSpecWithVehicle = async (c: Context) => {
   try {
+    console.log("Request Params:", c.req.param("vehicleSpecId"));
     const body = await c.req.json();
+    console.log("Request Body:", body);
+
     const vehicleSpec: Partial<TIVehicleSpecifications> = body.vehicleSpec;
     const vehicle: Partial<TIVehicles> = body.vehicle;
     const vehicleSpecId: number = parseInt(c.req.param("vehicleSpecId"), 10);
+
+    console.log("Parsed vehicleSpecId:", vehicleSpecId);
 
     const result = await updateVehicleSpecServiceWithVehicleService(
       vehicleSpec,

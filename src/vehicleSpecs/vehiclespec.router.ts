@@ -59,6 +59,6 @@ vehicleSpecRouter.put(
 );
 
 vehicleSpecRouter.delete(
-  "/vehiclespecs-vehicles/:id",
+  "/vehiclespecs-vehicles/:vehicleSpecId",
   deleteVehicleSpecWithVehicle
 );
