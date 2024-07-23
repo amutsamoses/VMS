@@ -257,40 +257,36 @@ GET http://localhost:3000/api/
 ###
 GET http://localhost:3000/vehiclespecs-with-vehicles
 
-
-
-
-
-
 ###
-PUT http://localhost:3000/vehiclespecs-vehicles/11
+POST http://localhost:3000/vehiclespecs-vehicles
 Content-Type: application/json
         
-    {
-        "vehicleSpec": {
-        "manufacturer": "Audi",
-        "model": "Q5",
-        "year": 2022,
-        "fuel_type": "Petrol",
-        "engine_capacity": "3000cc",
-        "transmission": "Automatic",
-        "seating_capacity": 5,
-        "color": "Black",
-        "features": "Air Conditioning, Windows, Keyless Entry, Reverse Camera, Steering Controls, Sunroof, Xenon Lights"
-        },
-        "vehicle": {
-            "vehicle_image": "",
-            "rental_rate": 50.70,
-            "availability": true
-        }
-    }
+ {
+  "vehicle": {
+    "rental_rate": 56,
+    "availability": true,
+    "vehicle_image": ""
+  },
+  "vehicleSpec": {
+    "manufacturer": "AUDI",
+    "model": "QX34",
+    "year": 2025,
+    "fuel_type": "Petrol",
+    "engine_capacity": "34500cc",
+    "transmission": "Automatic",
+    "seating_capacity": 4,
+    "color": "blue",
+    "features": "air condition, airbag, high roof, high profile"
+  }
+}
+
 
 
 
 
 
 ###
-DELETE http://localhost:3000/vehiclespecs-vehicles/8
+DELETE http://localhost:3000/vehiclespecs-vehicles/19
 
 
 

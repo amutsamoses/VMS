@@ -325,6 +325,9 @@ export const deleteVehicleSpecServiceWithVehicleService = async (
 
     return "Vehicle Spec and Vehicle deleted successfully!";
   } catch (error: any) {
+    console.error(
+      `Failed to delete vehicle and its specifications: ${error.message}`
+    );
     throw new Error(
       `Failed to delete vehicle and its specifications: ${error.message}`
     );

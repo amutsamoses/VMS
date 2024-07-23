@@ -13,7 +13,7 @@ import {
   deleteVehicleSpecServiceWithVehicleService,
 } from "./vehiclespec.service";
 import { z, ZodError } from "zod";
-import { updateVehicleSpecWithVehicleSchema } from "../validators";
+import { vehicleSchema, vehicleSpecificationSchema } from "../validators";
 import { TIVehicleSpecifications, TIVehicles } from "../drizzle/schema";
 
 export const listVehicleSpec = async (c: Context) => {
@@ -132,16 +132,27 @@ export const vehicleSpecWithVehicle = async (c: Context) => {
   }
 };
 
-// controller for creating vehicleSpec with vehicle
 export const createVehicleSpecWithVehicle = async (c: Context) => {
   try {
-    const vehicleSpec = await c.req.json();
-    const vehicle = await c.req.json();
+    const { vehicleSpec, vehicle } = await c.req.json();
 
     if (!vehicleSpec || !vehicle) {
       return c.text("Vehicle Specs or vehicle not found", 400);
     }
 
+    // Validate the vehicleSpec object
+    try {
+      vehicleSpecificationSchema.parse(vehicleSpec);
+    } catch (err: any) {
+      return c.json({ error: err.errors }, 400);
+    }
+
+    // Validate the vehicle object
+    try {
+      vehicleSchema.parse(vehicle);
+    } catch (err: any) {
+      return c.json({ error: err.errors }, 400);
+    }
     console.log("Request Data", vehicleSpec, vehicle);
 
     const result = await createVehicleSpecServiceWithVehicleService(
@@ -188,25 +199,21 @@ export const updateVehicleSpecWithVehicle = async (c: Context) => {
   }
 };
 
-// controller for deleting vehicleSpec with vehicle
 export const deleteVehicleSpecWithVehicle = async (c: Context) => {
   try {
-    // Get the vehicle specification ID from the request parameters
-    const vehicleSpecId = Number(c.req.param("id"));
+    const vehicleSpecId = c.req.param("vehicleSpecId");
 
-    // Check if the vehicleSpec_id is a valid number
-    if (isNaN(vehicleSpecId)) {
-      return c.json({ error: "Invalid vehicle specification ID" }, 400);
+    if (!vehicleSpecId) {
+      return c.text("Vehicle specification ID is required", 400);
     }
 
-    // Call the delete service
-    const message =
-      await deleteVehicleSpecServiceWithVehicleService(vehicleSpecId);
+    const result = await deleteVehicleSpecServiceWithVehicleService(
+      Number(vehicleSpecId)
+    );
 
-    // Return success message
-    return c.json({ message }, 200);
+    return c.json({ message: result }, 200);
   } catch (error: any) {
-    // Return error message
-    return c.json({ error: error.message }, 500);
+    console.error("Error:", error); // Log detailed error
+    return c.json({ error: error?.message || "An error occurred" }, 500);
   }
 };
