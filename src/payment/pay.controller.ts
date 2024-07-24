@@ -197,8 +197,8 @@ export const createCheckoutSession = async (c: Context) => {
       payment_method_types: ["card"],
       line_items,
       mode: "payment",
-      success_url: "http://localhost:3000/payment-successful",
-      cancel_url: "http://localhost:3000/payment-cancel",
+      success_url: "https://vms-0mk4.onrender.com/payment-successful",
+      cancel_url: "https://vms-0mk4.onrender.com/payment-cancel",
     };
 
     const session: Stripe.Checkout.Session =
