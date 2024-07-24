@@ -43,7 +43,7 @@ app.get("/timeout", async (c) => {
 app.use(
   "*",
   cors({
-    origin: "http://localhost:5173", // Allow only your frontend's origin
+    origin: "https://carrental-aoos2qh83-kephar-moses-projects.vercel.app", // Allow only your frontend's origin
     allowMethods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed methods
     allowHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
   })
