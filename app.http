@@ -362,8 +362,8 @@ Content-Type: application/json
         "user_id": 4,
         "vehicle_id": 4,
         "location_id": 3,
-        "booking_date": "2021-07-20",
-        "return_date": "2021-07-25",
+        "booking_date": "2022-07-20",
+        "return_date": "2022-07-25",
         "total_amount": 455
     }
 
@@ -436,7 +436,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJh
 
 
 ###
-GET http://localhost:3000/api/customerSupportTickets-users
+GET http://localhost:3000/customerSupportTickets-users
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 
 

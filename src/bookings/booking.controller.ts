@@ -62,7 +62,7 @@ export const createBooking = async (c: Context) => {
     if (!result) {
       return c.text("Booking not created", 400);
     }
-    return c.json({ message: result }, 201);
+    return c.json(result, 201);
   } catch (error: any) {
     return c.json({ error: error?.message }, 500);
   }
