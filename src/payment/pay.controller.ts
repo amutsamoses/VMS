@@ -14,6 +14,7 @@ import {
 } from "./pay.service";
 import { stripeClient } from "../drizzle/db";
 import Stripe from "stripe";
+import { ClientURL } from "../utils/constants";
 
 export const listPayment = async (c: Context) => {
   try {
@@ -197,8 +198,8 @@ export const createCheckoutSession = async (c: Context) => {
       payment_method_types: ["card"],
       line_items,
       mode: "payment",
-      success_url: "https://vms-0mk4.onrender.com/payment-successful",
-      cancel_url: "https://vms-0mk4.onrender.com/payment-cancel",
+      success_url: `${ClientURL}payment-successful`,
+      cancel_url: `${ClientURL}payment-failed`,
     };
 
     const session: Stripe.Checkout.Session =
