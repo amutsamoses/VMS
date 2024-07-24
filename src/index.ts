@@ -40,14 +40,7 @@ app.get("/timeout", async (c) => {
   return c.text("data after 5 seconds", 200);
 });
 
-app.use(
-  "*",
-  cors({
-    origin: "https://carrentalhub-kephar-moses-projects.vercel.app/", // Allow only your frontend's origin
-    allowMethods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed methods
-    allowHeaders: ["Content-Type", "Authorization"], // Specify allowed headers
-  })
-);
+app.use("*", cors()); // adds cors headers to the response
 
 //routes
 app.route("/", userRouter);
