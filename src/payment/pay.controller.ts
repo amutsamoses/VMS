@@ -14,7 +14,7 @@ import {
 } from "./pay.service";
 import { stripeClient } from "../drizzle/db";
 import Stripe from "stripe";
-import { ClientURL } from "../utils/constants";
+import { ClientURL, localURL } from "../utils/constants";
 
 export const listPayment = async (c: Context) => {
   try {
@@ -198,8 +198,8 @@ export const createCheckoutSession = async (c: Context) => {
       payment_method_types: ["card"],
       line_items,
       mode: "payment",
-      success_url: `${ClientURL}/payment-successful`,
-      cancel_url: `${ClientURL}/payment-failed`,
+      success_url: `${localURL}/payment-successful`,
+      cancel_url: `${localURL}/payment-failed`,
     };
 
     const session: Stripe.Checkout.Session =
@@ -222,5 +222,46 @@ export const createCheckoutSession = async (c: Context) => {
     );
   } catch (error: any) {
     return c.json({ message: error.message }, 400);
+  }
+};
+
+//Webhook
+export const handleStripeWebhook = async (c: Context) => {
+  const sig = c.req.header("stripe-signature");
+  const rawBody = await c.req.text();
+  if (!sig) {
+    console.log("Signature not provided");
+    return c.json({ message: "Invalid Signature" }, 400);
+  }
+  let event: Stripe.Event;
+  try {
+    event = Stripe.webhooks.constructEvent(
+      rawBody,
+      sig,
+      process.env.STRIPE_ENDPOINT_SECRET as string
+    );
+  } catch (error: any) {
+    console.log("Error", error.message);
+    return c.json({ message: `WebHook Error: ${error.message}` }, 400);
+  }
+
+  //handling the event
+  switch (event.type) {
+    case "checkout.session.completed":
+      const session = event.data.object as Stripe.Checkout.Session;
+
+      //update the payment
+      try {
+        const session_id = session.id;
+        const updateStatus = await updatePaymentSessionIdService(session_id);
+        return c.json({ message: updateStatus }, 200);
+      } catch (error: any) {
+        return c.json({ message: `Database Error ${error.message}` }, 500);
+      }
+
+    //handle other events
+    default:
+      console.log(`Unhandled event type ${event.type}`);
+      return c.json({ message: `Unhandled event type ${event.type}` }, 200);
   }
 };
