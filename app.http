@@ -427,7 +427,7 @@ Content-Type: application/json
 GET http://localhost:3000/api/locationsBranches-bookings
 
 ###
-GET http://localhost:3000/api/customerSupportTickets
+GET http://localhost:3000/customerSupportTickets
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 
 //both
@@ -447,7 +447,6 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJh
 Content-Type: application/json
         
         {
-            "user_id": 7,
             "subject": "Booking Issue",
             "description": "I have an issue with my booking",
             "status": "Pending"
