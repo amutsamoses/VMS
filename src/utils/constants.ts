@@ -1,4 +1,5 @@
-export const ClientURL = "https://vms-0mk4.onrender.com";
+export const ClientURL =
+  "https://carrentalhub-kephar-moses-projects.vercel.app";
 
 //
 export const localURL = "http://localhost:5173";
