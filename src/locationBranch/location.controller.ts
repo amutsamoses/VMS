@@ -51,7 +51,7 @@ export const createLocationsAndBranches = async (c: Context) => {
     if (!result) {
       return c.text("Location and Branch not created", 400);
     }
-    return c.json({ message: result }, 201);
+    return c.json({ result }, 201);
   } catch (error: any) {
     return c.json({ error: error?.message }, 500);
   }
@@ -93,7 +93,7 @@ export const deleteLocationsAndBranches = async (c: Context) => {
     }
 
     const result = await deleteLocationsAndBranchesService(id);
-    return c.json({ message: result }, 200);
+    return c.json({ result }, 200);
   } catch (error: any) {
     return c.json({ error: error?.message }, 500);
   }
@@ -112,7 +112,6 @@ export const limitLocationsAndBranches = async (c: Context) => {
     return c.json({ error: error?.message }, 500);
   }
 };
-
 
 //location with bookings
 export const locationWithBookings = async (c: Context) => {

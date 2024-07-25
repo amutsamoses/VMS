@@ -64,7 +64,6 @@ export const bookingSchema = z.object({
 export const locationBranchSchema = z.object({});
 
 export const customerSupportSchema = z.object({
-  user_id: z.number(),
   subject: z.string(),
   description: z.string(),
   status: z.string(),

@@ -61,7 +61,7 @@ export const createFleet = async (c: Context) => {
     if (!result) {
       return c.text("Fleet not created", 400);
     }
-    return c.json({ message: result }, 201);
+    return c.json({ result }, 201);
   } catch (error: any) {
     return c.json({ error: error?.message }, 500);
   }
@@ -80,7 +80,7 @@ export const updateFleet = async (c: Context) => {
     }
 
     const res = await updateFleetService(id, fleet);
-    return c.json({ message: res }, 200);
+    return c.json({ res }, 200);
   } catch (error: any) {
     return c.json({ error: error?.message }, 500);
   }

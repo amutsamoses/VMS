@@ -56,7 +56,7 @@ export const createCustomerSupportTickets = async (c: Context) => {
     if (!result) {
       return c.text("Customer Support Ticket not created", 400);
     }
-    return c.json({ message: result }, 201);
+    return c.json({ result }, 201);
   } catch (error: any) {
     return c.json({ error: error?.message }, 500);
   }
@@ -80,7 +80,7 @@ export const updateCustomerSupportTickets = async (c: Context) => {
       customerSupportTickets
     );
 
-    return c.json({ message: result }, 200);
+    return c.json({ result }, 200);
   } catch (error: any) {
     return c.json({ error: error?.message }, 500);
   }
@@ -99,7 +99,7 @@ export const deleteCustomerSupportTickets = async (c: Context) => {
     }
 
     const result = await deleteCustomerSupportTicketsService(id);
-    return c.json({ message: result }, 200);
+    return c.json({ result }, 200);
   } catch (error: any) {
     return c.json({ error: error?.message }, 500);
   }
@@ -123,11 +123,11 @@ export const limitCustomerSupportTickets = async (c: Context) => {
   }
 };
 
-
 // customer with user
 export const customerSupportTicketsWithUser = async (c: Context) => {
   try {
-    const customerSupportTickets = await customerSupportTicketsWithUserService();
+    const customerSupportTickets =
+      await customerSupportTicketsWithUserService();
     if (
       customerSupportTickets === null ||
       customerSupportTickets.length === 0

@@ -442,7 +442,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJh
 
 
 ###
-POST http://localhost:3000/api/customerSupportTickets
+POST http://localhost:3000/customerSupportTickets
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 Content-Type: application/json
         
