@@ -50,7 +50,7 @@ export const loginUser = async (c: Context) => {
     // Check if the result is null
     if (!result) {
       return c.json(
-        { error: "Login failed", details: "Invalid email or password" },
+        { error: "Register First", details: "Invalid email or password" },
         400
       );
     }
@@ -60,6 +60,6 @@ export const loginUser = async (c: Context) => {
     return c.json({ token, user }, 200);
   } catch (error: any) {
     console.error("Login error:", error); // Log the error for debugging
-    return c.json({ error: "Login failed", details: error.message }, 500);
+    return c.json({ error: "Register First", details: error.message }, 500);
   }
 };
