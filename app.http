@@ -480,12 +480,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJh
 
 
 ###
-POST http://localhost:3000/api/fleet
+POST http://localhost:3000/fleet
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsImVtYWlsIjoiZHJhY3VsYXRlcGVzQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyMDc4NTk5NywiZXhwIjoxNzIwNzk2Nzk3fQ.Jl0myN2sttjsCYd2vKrzpGFMep41oQLJq18SU4ljcbY
 Content-Type: application/json
         
         {
-            "vehicle_id": 6,
+            "vehicle_id": 5,
             "acquisition_date": "2021-07-20",
             "depreciation_rate": 5000,
             "current_value": 25000,
